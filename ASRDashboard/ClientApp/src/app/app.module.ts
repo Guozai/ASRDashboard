@@ -10,13 +10,19 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 
+import { RoomService } from "./services/room.service";
+import { AddRoomComponent } from "./components/add-room/add-room.component";
+import { FetchRoomComponent } from "./components/fetch-room/fetch-room.component";
+
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    AddRoomComponent,
+    FetchRoomComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -26,6 +32,9 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'fetch-room', component: FetchRoomComponent },
+      { path: 'add-room', component: AddRoomComponent },
+      { path: 'room/edit/:id', component: AddRoomComponent },
     ])
   ],
   providers: [],

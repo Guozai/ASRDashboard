@@ -19,7 +19,7 @@ export class AddRoomComponent implements OnInit {
   {
     if(this._avRoute.snapshot.params["id"])
     {
-      this.roomId = this._avRoute.snapshot.params["id"];
+      this.RoomID = this._avRoute.snapshot.params["id"];
     }
     this.roomForm = this._fb.group({
       roomId: ["", [Validators.required]],
@@ -29,7 +29,7 @@ export class AddRoomComponent implements OnInit {
   ngOnInit()
   {
     this.title = "Edit";
-    this._roomService.getRoomById(this.roomId).subscribe(resp => this.roomForm.setValue(resp),
+    this._roomService.getRoomById(this.RoomID).subscribe(resp => this.roomForm.setValue(resp),
       error => this.errorMessage = error);
   }
 
