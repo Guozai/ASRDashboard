@@ -30,16 +30,16 @@ namespace ASRDashboard.Models
         }
 
         // Get the details of a particular Room.
-        public Room GetData(int id)
+        public Room GetData(string RoomID)
         {
-            var room = db.Room.Find(id);
+            var room = db.Room.FirstOrDefault(x => x.RoomId == RoomID);
             return room;
         }
 
         // To Delete the record of a particular Room.
-        public int Delete(int id)
+        public int Delete(string RoomID)
         {
-            var room = db.Room.Find(id);
+            var room = db.Room.FirstOrDefault(x => x.RoomId == RoomID);
             db.Room.Remove(room);
             db.SaveChanges();
             return 1;

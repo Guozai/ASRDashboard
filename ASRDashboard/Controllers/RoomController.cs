@@ -25,10 +25,10 @@ namespace ASRDashboard.Controllers
         }
 
         [HttpGet]
-        [Route("Details/{id}")]
-        public Room Details(int id)
+        [Route("Details/{RoomID}")]
+        public Room Details(string RoomID)
         {
-            return roomDataAccessLayer.GetData(id);
+            return roomDataAccessLayer.GetData(RoomID);
         }
 
         [HttpPut]
@@ -39,10 +39,10 @@ namespace ASRDashboard.Controllers
         }
 
         [HttpDelete]
-        [Route("Delete/{id}")]
-        public int Delete(int id)
+        [Route("Delete/{RoomID}")]
+        public int Delete(string RoomID)
         {
-            return roomDataAccessLayer.Delete(id);
+            return roomDataAccessLayer.Delete(RoomID);
         }
     }
 }
