@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
@@ -30,16 +31,18 @@ namespace ASRDashboard.Models
         }
 
         // Get the details of a particular Slot.
-        public Slot GetData(int id)
+        public Slot GetData(string RoomID, DateTime StartTime)
         {
-            var slot = db.Slot.Find(id);
+            var slot = db.Slot.FirstOrDefault(
+                x => x.RoomId == RoomID && x.StartTime == StartTime);
             return slot;
         }
 
         // To Delete the record of a particular Slot.
-        public int Delete(int id)
+        public int Delete(string RoomID, DateTime StartTime)
         {
-            var slot = db.Slot.Find(id);
+            var slot = db.Slot.FirstOrDefault(
+                x => x.RoomId == RoomID && x.StartTime == StartTime);
             db.Slot.Remove(slot);
             db.SaveChanges();
             return 1;

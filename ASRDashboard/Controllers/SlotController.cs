@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using ASRDashboard.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,10 +27,11 @@ namespace ASRDashboard.Controllers
         }
 
         [HttpGet]
-        [Route("Details/{id}")]
-        public Slot Details(int id)
+        [Route("Details/{RoomID}/{StartTime}")]
+        public Slot Details(string RoomID, string dateTime)
         {
-            return slotDataAccessLayer.GetData(id);
+            var StartTime = DateTime.ParseExact(dateTime, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            return slotDataAccessLayer.GetData(RoomID, StartTime);
         }
 
         [HttpPut]
@@ -39,10 +42,11 @@ namespace ASRDashboard.Controllers
         }
 
         [HttpDelete]
-        [Route("Delete/{id}")]
-        public int Delete(int id)
+        [Route("Delete/{RoomID}/{StartTime}")]
+        public int Delete(string RoomID, string dateTime)
         {
-            return slotDataAccessLayer.Delete(id);
+            var StartTime = DateTime.ParseExact(dateTime, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            return slotDataAccessLayer.Delete(RoomID, StartTime);
         }
     }
 }

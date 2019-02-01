@@ -1,4 +1,4 @@
-import { Injectable, Inject } from "@angular/core";
+import { Injectable, Inject, startTimeRange } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
@@ -21,31 +21,37 @@ export class SlotService {
 
   getSlots()
   {
-    return this._http.get(this.myAppUrl + "api/Employee/Index").map((response: Response) => response.json())
+    return this._http.get(this.myAppUrl + "api/Slot/Index").map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
 
-  getEmployeeById(id: number)
+  getSingleSlot(RoomID: string, StartTime: Date)
   {
-    return this._http.get(this.myAppUrl + "api/Employee/Details/" + id).map((response: Response) => response.json())
+    var dateTime = StartTime.getDate() + "/" + (StartTime.getMonth() + 1) + "/" + StartTime.getFullYear()
+      + " " + StartTime.getHours() + ":" + StartTime.getMinutes() + ":" + StartTime.getSeconds();
+
+    return this._http.get(this.myAppUrl + "api/Slot/Details/" + RoomID + "/" + dateTime).map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
 
-  saveEmployee(employee)
+  saveSlot(slot)
   {
-    return this._http.post(this.myAppUrl + "api/Employee/Create", employee).map((response: Response) => response.json())
+    return this._http.post(this.myAppUrl + "api/Slot/Create", slot).map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
 
-  updateEmployee(employee)
+  updateSlot(slot)
   {
-    return this._http.put(this.myAppUrl + "api/Employee/Edit", employee).map((response: Response) => response.json())
+    return this._http.put(this.myAppUrl + "api/Slot/Edit", slot).map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
 
-  deleteEmployee(id)
+  deleteEmployee(RoomID: string, StartTime: Date)
   {
-    return this._http.delete(this.myAppUrl + "api/Employee/Delete/" + id).map((response: Response) => response.json())
+    var dateTime = StartTime.getDate() + "/" + (StartTime.getMonth() + 1) + "/" + StartTime.getFullYear()
+      + " " + StartTime.getHours() + ":" + StartTime.getMinutes() + ":" + StartTime.getSeconds();
+
+    return this._http.delete(this.myAppUrl + "api/Slot/Delete/" + RoomID + "/" + dateTime).map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
 
