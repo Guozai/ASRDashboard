@@ -6,7 +6,7 @@ import "rxjs/add/operator/catch";
 import "rxjs/add/observable/throw";
 
 @Injectable()
-export class EmployeeService {
+export class SlotService {
   myAppUrl: string = "";
 
   constructor(private _http: Http, @Inject("BASE_URL") baseUrl: string)
@@ -19,7 +19,7 @@ export class EmployeeService {
     return this._http.get(this.myAppUrl + "api/Employee/GetCityList").map(res => res.json()).catch(this.errorHandler);
   }
 
-  getEmployees()
+  getSlots()
   {
     return this._http.get(this.myAppUrl + "api/Employee/Index").map((response: Response) => response.json())
       .catch(this.errorHandler);
