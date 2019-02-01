@@ -1,62 +1,53 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
-import { EmployeeService } from "../../services/employee.service";
+import { RoomService } from "../../services/room.service";
 
 @Component({
-  selector: "app-add-employee",
-  templateUrl: "./add-employee.component.html",
-  styleUrls: ["./add-employee.component.css"]
+  selector: "app-add-room",
+  templateUrl: "./add-room.component.html",
+  styleUrls: ["./add-room.component.css"]
 })
-export class AddEmployeeComponent implements OnInit {
+export class AddRoomComponent implements OnInit {
   employeeForm: FormGroup;
   title: string = "Create";
-  employeeId: number;
+  RoomID: string;
   errorMessage: any;
-  cityList: Array<any> = [];
 
-  constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute, private _employeeService: EmployeeService,
+  constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute, private _roomService: RoomService,
     private _router: Router)
   {
     if(this._avRoute.snapshot.params["id"])
     {
-      this.employeeId = this._avRoute.snapshot.params["id"];
+      this.roomId = this._avRoute.snapshot.params["id"];
     }
-    this.employeeForm = this._fb.group({
-      employeeId: 0,
-      name: ["", [Validators.required]],
-      gender: ["", [Validators.required]],
-      department: ["", [Validators.required]],
-      city: ["", [Validators.required]]
+    this.roomForm = this._fb.group({
+      roomId: ["", [Validators.required]],
     });
   }
 
   ngOnInit()
   {
-    this._employeeService.getCityList().subscribe(data => this.cityList = data);
-    if(this.employeeId > 0)
-    {
-      this.title = "Edit";
-      this._employeeService.getEmployeeById(this.employeeId).subscribe(resp => this.employeeForm.setValue(resp),
-        error => this.errorMessage = error);
-    }
+    this.title = "Edit";
+    this._roomService.getRoomById(this.roomId).subscribe(resp => this.roomForm.setValue(resp),
+      error => this.errorMessage = error);
   }
 
   save()
   {
-    if(!this.employeeForm.valid)
+    if(!this.roomForm.valid)
     {
       return;
     }
     if(this.title === "Create")
     {
-      this._employeeService.saveEmployee(this.employeeForm.value).subscribe((data) => {
+      this._roomService.saveRoom(this.employeeForm.value).subscribe((data) => {
         this._router.navigate(["/fetch-employee"]);
       }, error => this.errorMessage = error);
     }
     else if(this.title === "Edit")
     {
-      this._employeeService.updateEmployee(this.employeeForm.value).subscribe((data) => {
+      this._roomService.updateRoom(this.employeeForm.value).subscribe((data) => {
         this._router.navigate(["/fetch-employee"]);
       }, error => this.errorMessage = error);
     }
@@ -64,26 +55,11 @@ export class AddEmployeeComponent implements OnInit {
 
   cancel()
   {
-    this._router.navigate(["/fetch-employee"]);
+    this._router.navigate(["/fetch-room"]);
   }
 
-  get name()
+  get roomId()
   {
-    return this.employeeForm.get("name");
-  }
-
-  get gender()
-  {
-    return this.employeeForm.get("gender");
-  }
-
-  get department()
-  {
-    return this.employeeForm.get("department");
-  }
-
-  get city()
-  {
-    return this.employeeForm.get("city");
+    return this.roomForm.get("roomId");
   }
 }
