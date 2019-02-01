@@ -21,12 +21,12 @@ export class FetchRoomComponent {
     this._roomService.getRooms().subscribe(data => this.roomList = data);
   }
 
-  delete(roomID)
+  delete(RoomID)
   {
-    const ans = confirm("Do you want to delete room " + roomID);
+    const ans = confirm("Do you want to delete room " + RoomID);
     if(ans)
     {
-      this._roomService.deleteRoom(roomID).subscribe((data) =>
+      this._roomService.deleteRoom(RoomID).subscribe((data) =>
         {
           this.getRooms();
         },
@@ -36,5 +36,5 @@ export class FetchRoomComponent {
 }
 
 interface RoomData {
-  roomId: string;
+  RoomID: string;
 }
