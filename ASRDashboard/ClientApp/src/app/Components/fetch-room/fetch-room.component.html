@@ -1,0 +1,26 @@
+<h1>Room Data</h1>
+
+<p>This component demonstrates fetching Room data from the server.</p>
+
+<p *ngIf="!roomList"><em>Loading...</em></p>
+
+<p>
+  <a [routerLink]="['/add-room']">Create New Room</a>
+</p>
+
+<table class='table' *ngIf="roomList">
+  <thead>
+  <tr>
+    <th>RoomID</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let room of roomList">
+    <td>{{ room.RoomId }}</td>
+    <td>
+    <td>
+      | <a [routerLink]="['/room/edit/', room.RoomId]">Edit</a> |
+    </td>
+  </tr>
+  </tbody>
+</table>
