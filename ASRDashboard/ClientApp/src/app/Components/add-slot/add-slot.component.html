@@ -1,0 +1,23 @@
+<h1>{{title}}</h1>
+<h3>Slot</h3>
+<hr />
+<form [formGroup]="slotForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">RoomID</label>
+    <div class="col-md-4"> <input class="form-control" type="text" formControlName="RoomID"> </div>
+    <span class="text-danger" *ngIf="RoomID.invalid && formDir.submitted">
+      RoomID is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">StartTime</label>
+    <div class="col-md-4"> <input class="form-control" type="text" formControlName="StartTime"> </div>
+    <span class="text-danger" *ngIf="StartTime.invalid && formDir.submitted">
+      StartTime is required.
+    </span>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-default">Save</button>
+    <button class="btn" (click)="cancel()">Cancel</button>
+  </div>
+</form>

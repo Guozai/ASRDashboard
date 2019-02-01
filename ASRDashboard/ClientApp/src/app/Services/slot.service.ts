@@ -46,7 +46,7 @@ export class SlotService {
       .catch(this.errorHandler);
   }
 
-  deleteEmployee(RoomID: string, StartTime: Date)
+  deleteSlot(RoomID: string, StartTime: Date)
   {
     var dateTime = StartTime.getDate() + "/" + (StartTime.getMonth() + 1) + "/" + StartTime.getFullYear()
       + " " + StartTime.getHours() + ":" + StartTime.getMinutes() + ":" + StartTime.getSeconds();
