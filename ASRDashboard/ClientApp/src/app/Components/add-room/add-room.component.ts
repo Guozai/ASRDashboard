@@ -9,7 +9,7 @@ import { RoomService } from "../../services/room.service";
   styleUrls: ["./add-room.component.css"]
 })
 export class AddRoomComponent implements OnInit {
-  employeeForm: FormGroup;
+  roomForm: FormGroup;
   title: string = "Create";
   RoomID: string;
   errorMessage: any;
@@ -41,13 +41,13 @@ export class AddRoomComponent implements OnInit {
     }
     if(this.title === "Create")
     {
-      this._roomService.saveRoom(this.employeeForm.value).subscribe((data) => {
+      this._roomService.saveRoom(this.roomForm.value).subscribe((data) => {
         this._router.navigate(["/fetch-employee"]);
       }, error => this.errorMessage = error);
     }
     else if(this.title === "Edit")
     {
-      this._roomService.updateRoom(this.employeeForm.value).subscribe((data) => {
+      this._roomService.updateRoom(this.roomForm.value).subscribe((data) => {
         this._router.navigate(["/fetch-employee"]);
       }, error => this.errorMessage = error);
     }
