@@ -12,6 +12,11 @@ namespace ASRDashboard.Models
             return db.Room.ToList();
         }
 
+        //public IEnumerable<Room> GetForRoom(string RoomID)
+        //{
+        //    return db.Room.Where(x => x.RoomId == RoomID).ToList();
+        //}
+
         // To Add new Room record.
         public int Add(Room room)
         {

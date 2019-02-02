@@ -17,10 +17,6 @@
   <tbody>
   <tr *ngFor="let room of roomList">
     <td>{{ room.roomId }}</td>
-    <td>
-    <td>
-      | <a [routerLink]="['/room/edit', room.roomId]">Edit</a> |
-    </td>
   </tr>
   </tbody>
 </table>

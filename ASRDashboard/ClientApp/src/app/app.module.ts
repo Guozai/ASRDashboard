@@ -13,10 +13,11 @@ import { HomeComponent } from "./home/home.component";
 import { RoomService } from "./services/room.service";
 import { AddRoomComponent } from "./components/add-room/add-room.component";
 import { FetchRoomComponent } from "./components/fetch-room/fetch-room.component";
-import { EditRoomComponent } from "./Components/edit-room/edit-room.component";
+import { EditStaffComponent } from "./Components/edit-staff/edit-staff.component";
 
 import { SlotService } from "./services/slot.service";
-import { FetchSlotComponent } from "./components/fetch-slot/fetch-slot.component";
+import { FetchStaffComponent } from "./components/fetch-staff/fetch-staff.component";
+import { FetchStudentComponent } from "./components/fetch-student/fetch-student.component";
 
 import { DialogFetchComponent } from "./components/dialog-fetch/dialog-fetch.component";
 
@@ -27,8 +28,9 @@ import { DialogFetchComponent } from "./components/dialog-fetch/dialog-fetch.com
     HomeComponent,
     AddRoomComponent,
     FetchRoomComponent,
-    EditRoomComponent,
-    FetchSlotComponent,
+    EditStaffComponent,
+    FetchStaffComponent,
+    FetchStudentComponent,
     DialogFetchComponent
   ],
   imports: [
@@ -42,8 +44,9 @@ import { DialogFetchComponent } from "./components/dialog-fetch/dialog-fetch.com
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'fetch-room', component: FetchRoomComponent },
       { path: 'add-room', component: AddRoomComponent },
-      { path: 'room/edit/:id', component: EditRoomComponent },
-      { path: 'fetch-slot', component: FetchSlotComponent },
+      { path: 'slot/edit/:id', component: EditStaffComponent },
+      { path: 'fetch-staff', component: FetchStaffComponent },
+      { path: 'fetch-student', component: FetchStudentComponent },
       { path: 'dialog-fetch', component: DialogFetchComponent },
     ])
   ],

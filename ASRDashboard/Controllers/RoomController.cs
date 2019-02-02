@@ -17,6 +17,13 @@ namespace ASRDashboard.Controllers
             return roomDataAccessLayer.GetAll();
         }
 
+        //[HttpGet]
+        //[Route("RoomID")]
+        //public IEnumerable<Room> GetForRoom(string RoomID)
+        //{
+        //    return roomDataAccessLayer.GetForRoom(RoomID);
+        //}
+
         [HttpPost]
         [Route("Create")]
         public int Create([FromBody] Room room)

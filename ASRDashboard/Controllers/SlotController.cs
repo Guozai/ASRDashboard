@@ -20,16 +20,22 @@ namespace ASRDashboard.Controllers
         }
 
         [HttpGet]
-        [Route("Staff")]
-        //[Route("api/Slot/Staff")]
+        [Route("Staff/{StaffID}")]
         public IEnumerable<Slot> GetForStaff(string StaffID)
         {
+            //List<Slot> slotList = new List<Slot>();
+            //var slots = slotDataAccessLayer.GetAll();
+            //foreach (var slot in slots)
+            //{
+            //    if (slot.StaffId == StaffID)
+            //        slotList.Add(slot);
+            //}
+            //return slotList;
             return slotDataAccessLayer.GetForStaff(StaffID);
         }
 
         [HttpGet]
-        [Route("Student")]
-        //[Route("api/Slot/Student")]
+        [Route("Student/{StudentID}")]
         public IEnumerable<Slot> GetForStudent(string StudentID)
         {
             return slotDataAccessLayer.GetForStudent(StudentID);

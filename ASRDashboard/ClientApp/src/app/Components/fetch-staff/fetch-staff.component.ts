@@ -4,11 +4,11 @@ import { Router } from "@angular/router";
 import { SlotService } from "../../services/slot.service";
 
 @Component({
-  selector: "app-fetch-slot",
-  templateUrl: "./fetch-slot.component.html",
-  styleUrls: ["./fetch-slot.component.css"]
+  selector: "app-fetch-staff",
+  templateUrl: "./fetch-staff.component.html",
+  styleUrls: ["./fetch-staff.component.css"]
 })
-export class FetchSlotComponent {
+export class FetchStaffComponent {
   slotList: SlotData[];
 
   constructor(public http: Http, private _router: Router, private _slotService: SlotService)

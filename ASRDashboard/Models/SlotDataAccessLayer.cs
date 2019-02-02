@@ -14,13 +14,13 @@ namespace ASRDashboard.Models
             return db.Slot.ToList();
         }
 
-        // Get all Slots for a single staff
+        // Get all slots for a single staff
         public IEnumerable<Slot> GetForStaff(string StaffID)
         {
             return db.Slot.Where(x => x.StaffId == StaffID).ToList();
         }
 
-        // Get all Slots for a single student
+        // Get all slots for a single student
         public IEnumerable<Slot> GetForStudent(string StudentID)
         {
             return db.Slot.Where(x => x.StudentId == StudentID).ToList();

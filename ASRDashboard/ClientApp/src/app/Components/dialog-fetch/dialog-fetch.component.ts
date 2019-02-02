@@ -28,12 +28,12 @@ export class DialogFetchComponent {
     }
     if (this.id.startsWith("e")) {
       this._slotService.getSlotsForStaff(this.dialogForm.value).subscribe((data) => {
-        this._router.navigate(["/fetch-slot"]);
+        this._router.navigate(["/fetch-staff"]);
       }, error => this.errorMessage = error);
     }
     if (this.id.startsWith("s")) {
       this._slotService.getSlotsForStudent(this.dialogForm.value).subscribe((data) => {
-        this._router.navigate(["/fetch-slot"]);
+        this._router.navigate(["/fetch-student"]);
       }, error => this.errorMessage = error);
     }
     else {
@@ -42,6 +42,6 @@ export class DialogFetchComponent {
   }
 
   cancel() {
-    this._router.navigate(["/fetch-slot"]);
+    this._router.navigate(["/fetch-student"]);
   }
 }

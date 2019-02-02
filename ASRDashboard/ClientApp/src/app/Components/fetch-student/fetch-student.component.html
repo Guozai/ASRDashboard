@@ -1,0 +1,29 @@
+<h1>Slot Data</h1>
+
+<p>This component demonstrates fetching Slot data from the server.</p>
+
+<p *ngIf="!slotList"><em>Loading...</em></p>
+
+<table class='table' *ngIf="slotList">
+  <thead>
+  <tr>
+    <th>RoomID</th>
+    <th>StartTime</th>
+    <th>StaffID</th>
+    <th>StudentID</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let slot of slotList">
+    <td>{{ slot.roomId }}</td>
+    <td>{{ slot.startTime }}</td>
+    <td>{{ slot.staffId }}</td>
+    <td>{{ slot.studentId }}</td>
+    <td>
+    <td>
+      <a [routerLink]="['/slot/edit/', slot.RoomID]">Edit</a> |
+      <a [routerLink]="" (click)="delete(slot.RoomID)">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
