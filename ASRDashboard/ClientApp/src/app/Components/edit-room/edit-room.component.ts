@@ -8,7 +8,7 @@ import { RoomService } from "../../services/room.service";
   templateUrl: "./add-room.component.html",
   styleUrls: ["./add-room.component.css"]
 })
-export class AddRoomComponent implements OnInit {
+export class EditRoomComponent implements OnInit {
   roomForm: FormGroup;
   id: string;
   errorMessage: any;
@@ -25,7 +25,11 @@ export class AddRoomComponent implements OnInit {
     });
   }
 
-  ngOnInit() { }
+  ngOnInit()
+  {
+    this._roomService.getRoomById(this.id).subscribe(resp => this.roomForm.setValue(resp),
+      error => this.errorMessage = error);
+  }
 
   save()
   {
@@ -33,7 +37,7 @@ export class AddRoomComponent implements OnInit {
     {
       return;
     }
-    this._roomService.saveRoom(this.roomForm.value).subscribe((data) => {
+    this._roomService.updateRoom(this.roomForm.value).subscribe((data) => {
       this._router.navigate(["/fetch-room"]);
     }, error => this.errorMessage = error);
   }

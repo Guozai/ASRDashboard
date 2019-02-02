@@ -21,6 +21,7 @@ namespace ASRDashboard.Controllers
         [Route("Create")]
         public int Create([FromBody] Room room)
         {
+            room.Slot = null;
             return roomDataAccessLayer.Add(room);
         }
 
