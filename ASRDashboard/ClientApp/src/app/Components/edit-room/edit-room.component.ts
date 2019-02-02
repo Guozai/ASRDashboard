@@ -4,9 +4,9 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { RoomService } from "../../services/room.service";
 
 @Component({
-  selector: "app-add-room",
-  templateUrl: "./add-room.component.html",
-  styleUrls: ["./add-room.component.css"]
+  selector: "app-edit-room",
+  templateUrl: "./edit-room.component.html",
+  styleUrls: ["./edit-room.component.css"]
 })
 export class EditRoomComponent implements OnInit {
   roomForm: FormGroup;

@@ -13,6 +13,7 @@ import { HomeComponent } from "./home/home.component";
 import { RoomService } from "./services/room.service";
 import { AddRoomComponent } from "./components/add-room/add-room.component";
 import { FetchRoomComponent } from "./components/fetch-room/fetch-room.component";
+import { EditRoomComponent } from "./Components/edit-room/edit-room.component";
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FetchRoomComponent } from "./components/fetch-room/fetch-room.component
     HomeComponent,
     AddRoomComponent,
     FetchRoomComponent,
+    EditRoomComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,7 +35,7 @@ import { FetchRoomComponent } from "./components/fetch-room/fetch-room.component
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'fetch-room', component: FetchRoomComponent },
       { path: 'add-room', component: AddRoomComponent },
-      { path: 'room/edit/:id', component: AddRoomComponent },
+      { path: 'room/edit/:id', component: EditRoomComponent },
     ])
   ],
   providers: [RoomService],
