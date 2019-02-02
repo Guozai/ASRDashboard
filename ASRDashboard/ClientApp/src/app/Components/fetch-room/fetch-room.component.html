@@ -16,10 +16,10 @@
   </thead>
   <tbody>
   <tr *ngFor="let room of roomList">
-    <td>{{ room.RoomId }}</td>
+    <td>{{ room.roomId }}</td>
     <td>
     <td>
-      | <a [routerLink]="['/room/edit/', room.RoomId]">Edit</a> |
+      | <a [routerLink]="['/room/edit/', room.roomId]">Edit</a> |
     </td>
   </tr>
   </tbody>

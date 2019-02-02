@@ -14,11 +14,6 @@ export class RoomService {
     this.myAppUrl = baseUrl;
   }
 
-  getCityList()
-  {
-    return this._http.get(this.myAppUrl + "api/Employee/GetCityList").map(res => res.json()).catch(this.errorHandler);
-  }
-
   getRooms()
   {
     return this._http.get(this.myAppUrl + "api/Room/Index").map((response: Response) => response.json())
