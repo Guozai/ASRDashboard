@@ -18,6 +18,8 @@ import { EditRoomComponent } from "./Components/edit-room/edit-room.component";
 import { SlotService } from "./services/slot.service";
 import { FetchSlotComponent } from "./components/fetch-slot/fetch-slot.component";
 
+import { DialogFetchComponent } from "./components/dialog-fetch/dialog-fetch.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { FetchSlotComponent } from "./components/fetch-slot/fetch-slot.component
     AddRoomComponent,
     FetchRoomComponent,
     EditRoomComponent,
-    FetchSlotComponent
+    FetchSlotComponent,
+    DialogFetchComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -41,6 +44,7 @@ import { FetchSlotComponent } from "./components/fetch-slot/fetch-slot.component
       { path: 'add-room', component: AddRoomComponent },
       { path: 'room/edit/:id', component: EditRoomComponent },
       { path: 'fetch-slot', component: FetchSlotComponent },
+      { path: 'dialog-fetch', component: DialogFetchComponent },
     ])
   ],
   providers: [RoomService, SlotService],

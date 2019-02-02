@@ -14,6 +14,18 @@ namespace ASRDashboard.Models
             return db.Slot.ToList();
         }
 
+        // Get all Slots for a single staff
+        public IEnumerable<Slot> GetForStaff(string StaffID)
+        {
+            return db.Slot.Where(x => x.StaffId == StaffID).ToList();
+        }
+
+        // Get all Slots for a single student
+        public IEnumerable<Slot> GetForStudent(string StudentID)
+        {
+            return db.Slot.Where(x => x.StudentId == StudentID).ToList();
+        }
+
         // To Add new Slot record.
         public int Add(Slot slot)
         {

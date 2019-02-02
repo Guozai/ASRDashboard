@@ -29,6 +29,18 @@ export class SlotService {
       .catch(this.errorHandler);
   }
 
+  getSlotsForStaff(StaffID: string)
+  {
+    return this._http.get(this.myAppUrl + "api/Slot/Staff/" + StaffID).map((response: Response) => response.json())
+      .catch(this.errorHandler);
+  }
+
+  getSlotsForStudent(StudentID: string)
+  {
+    return this._http.get(this.myAppUrl + "api/Slot/Student/" + StudentID).map((response: Response) => response.json())
+      .catch(this.errorHandler);
+  }
+
   saveSlot(slot)
   {
     return this._http.post(this.myAppUrl + "api/Slot/Create", slot).map((response: Response) => response.json())

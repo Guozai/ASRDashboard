@@ -19,6 +19,22 @@ namespace ASRDashboard.Controllers
             return slotDataAccessLayer.GetAll();
         }
 
+        [HttpGet]
+        [Route("Staff")]
+        //[Route("api/Slot/Staff")]
+        public IEnumerable<Slot> GetForStaff(string StaffID)
+        {
+            return slotDataAccessLayer.GetForStaff(StaffID);
+        }
+
+        [HttpGet]
+        [Route("Student")]
+        //[Route("api/Slot/Student")]
+        public IEnumerable<Slot> GetForStudent(string StudentID)
+        {
+            return slotDataAccessLayer.GetForStudent(StudentID);
+        }
+
         [HttpPost]
         [Route("Create")]
         public int Create([FromBody] Slot slot)
