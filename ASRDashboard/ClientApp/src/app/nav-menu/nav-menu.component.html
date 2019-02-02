@@ -22,6 +22,16 @@
                 <span class='glyphicon glyphicon-th-list'></span> Fetch Room
               </a>
             </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/fetch-slot"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> Staff Slot
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/fetch-slot"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> Student Booking
+              </a>
+            </li>
           </ul>
         </div>
     </div>

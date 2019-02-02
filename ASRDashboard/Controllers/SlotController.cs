@@ -35,8 +35,8 @@ namespace ASRDashboard.Controllers
         }
 
         [HttpPut]
-        [Route("Edit")]
-        public int Edit([FromBody] Slot slot)
+        [Route("Edit/{RoomID}/{StartTime}")]
+        public int Edit(string RoomID, string dateTime, [FromBody] Slot slot)
         {
             return slotDataAccessLayer.Update(slot);
         }

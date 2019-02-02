@@ -15,6 +15,9 @@ import { AddRoomComponent } from "./components/add-room/add-room.component";
 import { FetchRoomComponent } from "./components/fetch-room/fetch-room.component";
 import { EditRoomComponent } from "./Components/edit-room/edit-room.component";
 
+import { SlotService } from "./services/slot.service";
+import { FetchSlotComponent } from "./components/fetch-slot/fetch-slot.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,7 @@ import { EditRoomComponent } from "./Components/edit-room/edit-room.component";
     AddRoomComponent,
     FetchRoomComponent,
     EditRoomComponent,
+    FetchSlotComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,9 +40,10 @@ import { EditRoomComponent } from "./Components/edit-room/edit-room.component";
       { path: 'fetch-room', component: FetchRoomComponent },
       { path: 'add-room', component: AddRoomComponent },
       { path: 'room/edit/:id', component: EditRoomComponent },
+      { path: 'fetch-slot', component: FetchSlotComponent },
     ])
   ],
-  providers: [RoomService],
+  providers: [RoomService, SlotService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
