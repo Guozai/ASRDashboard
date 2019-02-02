@@ -24,7 +24,8 @@ namespace ASRDashboard.Models
         // To Update the records of a particular Room.
         public int Update(Room room)
         {
-            db.Entry(room).State = EntityState.Modified;
+            db.Room.Update(room);
+            //db.Entry(room).State = EntityState.Modified;
             db.SaveChanges();
             return 1;
         }
