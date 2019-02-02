@@ -4,7 +4,7 @@
 <form [formGroup]="roomForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
   <div class="form-group row">
     <label class=" control-label col-md-12">RoomID</label>
-    <div class="col-md-4"> <input class="form-control" type="text" formControlName="RoomID"> </div>
+    <div class="col-md-4"> <input class="form-control" type="text" formControlName="roomId"> </div>
     <span class="text-danger" *ngIf="roomId.invalid && formDir.submitted">
       RoomID is required.
     </span>
