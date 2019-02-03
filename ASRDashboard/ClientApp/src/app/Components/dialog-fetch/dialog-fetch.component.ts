@@ -27,13 +27,10 @@ export class DialogFetchComponent {
       return;
     }
     //if (this.id.startsWith("e")) {
-      this._router.navigate(["/fetch-staff", this.id])
-      , error => this.errorMessage = error;
+    this._router.navigate(["/fetch-staff", this.dialogForm.value]);
     //}
     //if (this.id.startsWith("s")) {
-    //  this._slotService.getSlotsForStudent(this.dialogForm.value).subscribe((data) => {
-    //    this._router.navigate(["/fetch-student"]);
-    //  }, error => this.errorMessage = error);
+    //  this._router.navigate(["/fetch-student", this.dialogForm.value]);
     //}
     //else {
     //  return;

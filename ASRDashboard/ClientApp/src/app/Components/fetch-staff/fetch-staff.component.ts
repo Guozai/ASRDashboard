@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Http } from "@angular/http";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { SlotService } from "../../services/slot.service";
 
 @Component({
@@ -10,10 +10,14 @@ import { SlotService } from "../../services/slot.service";
 })
 export class FetchStaffComponent {
   slotList: SlotData[];
+  staffId: string;
 
-  constructor(public http: Http, private _router: Router, private _slotService: SlotService, private staffId: string)
+  constructor(public http: Http, private _avRoute: ActivatedRoute, private _slotService: SlotService)
   {
-    this.getSlots(staffId);
+    if (this._avRoute.snapshot.params["id"]) {
+      this.staffId = this._avRoute.snapshot.params["id"];
+    }
+    this.getSlots(this.staffId);
   }
 
   getSlots(staffId)

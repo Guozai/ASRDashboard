@@ -45,10 +45,11 @@ import { DialogFetchComponent } from "./components/dialog-fetch/dialog-fetch.com
       { path: 'fetch-room', component: FetchRoomComponent },
       { path: 'add-room', component: AddRoomComponent },
       { path: 'fetch-staff', component: FetchStaffComponent },
-      { path: 'fetch-student', component: FetchStudentComponent },
-      { path: 'slot/edit/:id', component: EditStaffComponent },
       { path: 'slot/staff/:id', component: FetchStaffComponent },
+      { path: 'fetch-student', component: FetchStudentComponent },
       { path: 'slot/student/:id', component: FetchStudentComponent },
+      { path: 'slot/edit/:id', component: EditStaffComponent },
+      { path: 'dialog-fetch', component: DialogFetchComponent },
     ])
   ],
   providers: [RoomService, SlotService],
