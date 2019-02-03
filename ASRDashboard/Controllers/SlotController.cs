@@ -42,9 +42,12 @@ namespace ASRDashboard.Controllers
 
         [HttpGet]
         [Route("Details/{RoomID}/{StartTime}")]
-        public Slot Details(string RoomID, string dateTime)
+        public Slot Details(string RoomID, string startTime)
         {
-            var StartTime = DateTime.ParseExact(dateTime, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            char[] seps = { 'T' };
+            string[] parts = startTime.Split(seps);
+
+            var StartTime = DateTime.ParseExact(parts[0] + " " + parts[1], "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             return slotDataAccessLayer.GetData(RoomID, StartTime);
         }
 

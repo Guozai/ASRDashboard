@@ -20,12 +20,9 @@ export class SlotService {
       .catch(this.errorHandler);
   }
 
-  getSingleSlot(RoomID: string, StartTime: Date)
+  getSingleSlot(RoomID: string, StartTime: string)
   {
-    var dateTime = StartTime.getDate() + "/" + (StartTime.getMonth() + 1) + "/" + StartTime.getFullYear()
-      + " " + StartTime.getHours() + ":" + StartTime.getMinutes() + ":" + StartTime.getSeconds();
-
-    return this._http.get(this.myAppUrl + "api/Slot/Details/" + RoomID + "/" + dateTime).map((response: Response) => response.json())
+    return this._http.get(this.myAppUrl + "api/Slot/Details/" + RoomID + "/" + StartTime).map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
 

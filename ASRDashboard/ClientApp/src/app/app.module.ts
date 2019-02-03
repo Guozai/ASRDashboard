@@ -16,8 +16,9 @@ import { FetchRoomComponent } from "./components/fetch-room/fetch-room.component
 
 import { SlotService } from "./services/slot.service";
 import { FetchStaffComponent } from "./components/fetch-staff/fetch-staff.component";
-import { FetchStudentComponent } from "./components/fetch-student/fetch-student.component";
 import { EditStaffComponent } from "./Components/edit-staff/edit-staff.component";
+import { FetchStudentComponent } from "./components/fetch-student/fetch-student.component";
+
 
 import { DialogStaffComponent } from "./components/dialog-staff/dialog-staff.component";
 import { DialogStudentComponent } from "./components/dialog-student/dialog-student.component";
@@ -50,7 +51,7 @@ import { DialogStudentComponent } from "./components/dialog-student/dialog-stude
       { path: 'slot/staff/:id', component: FetchStaffComponent },
       { path: 'fetch-student', component: FetchStudentComponent },
       { path: 'slot/student/:id', component: FetchStudentComponent },
-      { path: 'slot/edit/:id', component: EditStaffComponent },
+      { path: 'slot/edit/:roomId/:startTime', component: EditStaffComponent },
       { path: 'dialog-staff', component: DialogStaffComponent },
       { path: 'dialog-student', component: DialogStudentComponent },
     ])
