@@ -14,11 +14,11 @@ export class DialogFetchComponent {
 
   constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute, private _slotService: SlotService,
     private _router: Router) {
-    if (this._avRoute.snapshot.params["id"]) {
-      this.id = this._avRoute.snapshot.params["id"];
-    }
+    //if (this._avRoute.snapshot.params["id"]) {
+    //  this.id = this._avRoute.snapshot.params["id"];
+    //}
     this.dialogForm = this._fb.group({
-      roomId: ["", [Validators.required]],
+      id: ["", [Validators.required]],
     });
   }
 
@@ -26,22 +26,17 @@ export class DialogFetchComponent {
     if (!this.dialogForm.valid) {
       return;
     }
-    if (this.id.startsWith("e")) {
-      this._slotService.getSlotsForStaff(this.dialogForm.value).subscribe((data) => {
-        this._router.navigate(["/fetch-staff"]);
-      }, error => this.errorMessage = error);
-    }
-    if (this.id.startsWith("s")) {
-      this._slotService.getSlotsForStudent(this.dialogForm.value).subscribe((data) => {
-        this._router.navigate(["/fetch-student"]);
-      }, error => this.errorMessage = error);
-    }
-    else {
-      return;
-    }
-  }
-
-  cancel() {
-    this._router.navigate(["/fetch-student"]);
+    //if (this.id.startsWith("e")) {
+      this._router.navigate(["/fetch-staff", this.id])
+      , error => this.errorMessage = error;
+    //}
+    //if (this.id.startsWith("s")) {
+    //  this._slotService.getSlotsForStudent(this.dialogForm.value).subscribe((data) => {
+    //    this._router.navigate(["/fetch-student"]);
+    //  }, error => this.errorMessage = error);
+    //}
+    //else {
+    //  return;
+    //}
   }
 }

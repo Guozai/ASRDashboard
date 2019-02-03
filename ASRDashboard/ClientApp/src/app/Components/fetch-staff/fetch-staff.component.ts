@@ -11,24 +11,24 @@ import { SlotService } from "../../services/slot.service";
 export class FetchStaffComponent {
   slotList: SlotData[];
 
-  constructor(public http: Http, private _router: Router, private _slotService: SlotService)
+  constructor(public http: Http, private _router: Router, private _slotService: SlotService, private staffId: string)
   {
-    this.getSlots();
+    this.getSlots(staffId);
   }
 
-  getSlots()
+  getSlots(staffId)
   {
-    this._slotService.getSlots().subscribe(data => this.slotList = data);
+    this._slotService.getSlotsForStaff(staffId).subscribe(data => this.slotList = data);
   }
 
-  delete(RoomID, StartTime)
+  delete(RoomID, StartTime, staffId)
   {
     const ans = confirm("Do you want to delete slot for room " + RoomID + " at time: " + StartTime);
     if(ans)
     {
       this._slotService.deleteSlot(RoomID, StartTime).subscribe((data) =>
         {
-          this.getSlots();
+          this.getSlots(staffId);
         },
         error => console.error(error));
     }
@@ -38,6 +38,6 @@ export class FetchStaffComponent {
 interface SlotData {
   RoomID: string;
   StartTime: string;
-  StaffID: string;
-  StudentID: string;
+  staffId: string;
+  studentId: string;
 }
