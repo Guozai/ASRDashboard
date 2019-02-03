@@ -59,7 +59,10 @@ namespace ASRDashboard.Controllers
         [Route("Delete/{RoomID}/{StartTime}")]
         public int Delete(string RoomID, string startTime)
         {
-            var StartTime = DateTime.ParseExact(startTime, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            char[] seps = { 'T' };
+            string[] parts = startTime.Split(seps);
+
+            var StartTime = DateTime.ParseExact(parts[0] + " " + parts[1], "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
             return slotDataAccessLayer.Delete(RoomID, StartTime);
         }
     }
