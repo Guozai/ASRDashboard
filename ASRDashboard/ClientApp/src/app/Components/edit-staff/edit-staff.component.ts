@@ -12,6 +12,7 @@ export class EditStaffComponent implements OnInit {
   slotForm: FormGroup;
   id: string;
   startTime: string;
+  staffId: string;
   errorMessage: any;
 
   constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute, private _slotService: SlotService,
@@ -22,6 +23,9 @@ export class EditStaffComponent implements OnInit {
     }
     if (this._avRoute.snapshot.params["startTime"]) {
       this.startTime = this._avRoute.snapshot.params["startTime"];
+    }
+    if (this._avRoute.snapshot.params["staffId"]) {
+      this.staffId = this._avRoute.snapshot.params["staffId"];
     }
     this.slotForm = this._fb.group({
       roomId: ["", [Validators.required]],
@@ -44,13 +48,13 @@ export class EditStaffComponent implements OnInit {
       return;
     }
     this._slotService.updateSlot(this.slotForm.value).subscribe((data) => {
-      this._router.navigate(["/fetch-staff"]);
+      this._router.navigate(["/fetch-staff", this.staffId]);
     }, error => this.errorMessage = error);
   }
 
   cancel()
   {
-    this._router.navigate(["/fetch-staff"]);
+    this._router.navigate(["/fetch-staff", this.staffId]);
   }
 
   get roomId()

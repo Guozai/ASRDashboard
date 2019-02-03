@@ -1,26 +1,24 @@
 <h1>Edit Slot</h1>
 <hr />
-<p *ngIf="!slotList"><em>Loading...</em></p>
-
 <form [formGroup]="slotForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
   <div class="form-group row">
     <label class=" control-label col-md-12">RoomID</label>
     <div class="col-md-4"> <input class="form-control" type="text" formControlName="roomId"> </div>
-    <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
+    <span class="text-danger" *ngIf="roomId.invalid && formDir.submitted">
       RoomID is required.
     </span>
   </div>
   <div class="form-group row">
     <label class=" control-label col-md-12">StartTime</label>
     <div class="col-md-4"> <input class="form-control" type="text" formControlName="startTime"> </div>
-    <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
+    <span class="text-danger" *ngIf="startTime.invalid && formDir.submitted">
       StartTime is required.
     </span>
   </div>
   <div class="form-group row">
     <label class=" control-label col-md-12">StaffID</label>
     <div class="col-md-4"> <input class="form-control" type="text" formControlName="staffId"> </div>
-    <span class="text-danger" *ngIf="name.invalid && formDir.submitted">
+    <span class="text-danger" *ngIf="staffId.invalid && formDir.submitted">
       StaffID is required.
     </span>
   </div>

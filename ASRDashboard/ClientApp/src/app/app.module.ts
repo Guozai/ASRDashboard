@@ -51,7 +51,7 @@ import { DialogStudentComponent } from "./components/dialog-student/dialog-stude
       { path: 'slot/staff/:id', component: FetchStaffComponent },
       { path: 'fetch-student', component: FetchStudentComponent },
       { path: 'slot/student/:id', component: FetchStudentComponent },
-      { path: 'slot/edit/:roomId/:startTime', component: EditStaffComponent },
+      { path: 'slot/edit/:roomId/:startTime/:staffId', component: EditStaffComponent },
       { path: 'dialog-staff', component: DialogStaffComponent },
       { path: 'dialog-student', component: DialogStudentComponent },
     ])

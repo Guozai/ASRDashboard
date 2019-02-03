@@ -47,7 +47,7 @@ namespace ASRDashboard.Controllers
             char[] seps = { 'T' };
             string[] parts = startTime.Split(seps);
 
-            var StartTime = DateTime.ParseExact(parts[0] + " " + parts[1], "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            var StartTime = DateTime.ParseExact(parts[0] + " " + parts[1], "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
             return slotDataAccessLayer.GetData(RoomID, StartTime);
         }
 
