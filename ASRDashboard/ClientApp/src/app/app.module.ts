@@ -19,7 +19,8 @@ import { FetchStaffComponent } from "./components/fetch-staff/fetch-staff.compon
 import { FetchStudentComponent } from "./components/fetch-student/fetch-student.component";
 import { EditStaffComponent } from "./Components/edit-staff/edit-staff.component";
 
-import { DialogFetchComponent } from "./components/dialog-fetch/dialog-fetch.component";
+import { DialogStaffComponent } from "./components/dialog-staff/dialog-staff.component";
+import { DialogStudentComponent } from "./components/dialog-student/dialog-student.component";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DialogFetchComponent } from "./components/dialog-fetch/dialog-fetch.com
     FetchStaffComponent,
     FetchStudentComponent,
     EditStaffComponent,
-    DialogFetchComponent
+    DialogStaffComponent,
+    DialogStudentComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -49,7 +51,8 @@ import { DialogFetchComponent } from "./components/dialog-fetch/dialog-fetch.com
       { path: 'fetch-student', component: FetchStudentComponent },
       { path: 'slot/student/:id', component: FetchStudentComponent },
       { path: 'slot/edit/:id', component: EditStaffComponent },
-      { path: 'dialog-fetch', component: DialogFetchComponent },
+      { path: 'dialog-staff', component: DialogStaffComponent },
+      { path: 'dialog-student', component: DialogStudentComponent },
     ])
   ],
   providers: [RoomService, SlotService],

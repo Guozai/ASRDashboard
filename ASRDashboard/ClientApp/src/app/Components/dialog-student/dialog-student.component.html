@@ -3,7 +3,7 @@
 <hr />
 <form [formGroup]="dialogForm" (ngSubmit)="submit()" #formDir="ngForm" novalidate>
   <div class="form-group row">
-    <label class=" control-label col-md-12">Please input your staff or student ID:</label>
+    <label class=" control-label col-md-12">Please input your student ID:</label>
     <div class="col-md-4"> <input class="form-control" type="text" formControlName="id"> </div>
     <span class="text-danger" *ngIf="id.invalid && formDir.submitted">
       ID is required.

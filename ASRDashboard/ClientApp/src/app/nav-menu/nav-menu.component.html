@@ -23,8 +23,13 @@
               </a>
             </li>
             <li [routerLinkActive]='["link-active"]'>
-              <a [routerLink]='["/dialog-fetch"]' (click)='collapse()'>
-                <span class='glyphicon glyphicon-th-list'></span> List Slots
+              <a [routerLink]='["/dialog-staff"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> List For Staff
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/dialog-student"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> List For Student
               </a>
             </li>
           </ul>

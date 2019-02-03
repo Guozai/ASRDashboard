@@ -4,10 +4,10 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { SlotService } from "../../services/slot.service";
 
 @Component({
-  selector: 'app-dialog-fetch',
-  templateUrl: './dialog-fetch.component.html',
+  selector: 'app-dialog-staff',
+  templateUrl: './dialog-staff.component.html',
 })
-export class DialogFetchComponent {
+export class DialogStaffComponent {
   dialogForm: FormGroup;
   id: string;
   errorMessage: any;
