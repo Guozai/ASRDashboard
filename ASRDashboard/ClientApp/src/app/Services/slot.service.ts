@@ -53,12 +53,9 @@ export class SlotService {
       .catch(this.errorHandler);
   }
 
-  deleteSlot(RoomID: string, StartTime: Date)
+  deleteSlot(RoomID: string, StartTime: string)
   {
-    var dateTime = StartTime.getDate() + "/" + (StartTime.getMonth() + 1) + "/" + StartTime.getFullYear()
-      + " " + StartTime.getHours() + ":" + StartTime.getMinutes() + ":" + StartTime.getSeconds();
-
-    return this._http.delete(this.myAppUrl + "api/Slot/Delete/" + RoomID + "/" + dateTime).map((response: Response) => response.json())
+    return this._http.delete(this.myAppUrl + "api/Slot/Delete/" + RoomID + "/" + StartTime).map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
 

@@ -23,14 +23,6 @@ namespace ASRDashboard.Controllers
         [Route("Staff/{StaffID}")]
         public IEnumerable<Slot> GetForStaff(string StaffID)
         {
-            //List<Slot> slotList = new List<Slot>();
-            //var slots = slotDataAccessLayer.GetAll();
-            //foreach (var slot in slots)
-            //{
-            //    if (slot.StaffId == StaffID)
-            //        slotList.Add(slot);
-            //}
-            //return slotList;
             return slotDataAccessLayer.GetForStaff(StaffID);
         }
 
@@ -65,9 +57,9 @@ namespace ASRDashboard.Controllers
 
         [HttpDelete]
         [Route("Delete/{RoomID}/{StartTime}")]
-        public int Delete(string RoomID, string dateTime)
+        public int Delete(string RoomID, string startTime)
         {
-            var StartTime = DateTime.ParseExact(dateTime, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+            var StartTime = DateTime.ParseExact(startTime, "dd/MM/yyyy HH:mm:ss", CultureInfo.InvariantCulture);
             return slotDataAccessLayer.Delete(RoomID, StartTime);
         }
     }

@@ -1,13 +1,28 @@
-<h1>Edit</h1>
-<h3>Slot</h3>
+<h1>Edit Slot</h1>
 <hr />
+<p *ngIf="!slotList"><em>Loading...</em></p>
+
+<table class='table' *ngIf="slotList">
+  <thead>
+    <tr>
+      <th>RoomID</th>
+      <th>StartTime</th>
+      <th>StaffID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let slot of slotList">
+      <td>{{ slot.roomId }}</td>
+      <td>{{ slot.startTime }}</td>
+      <td>{{ slot.staffId }}</td>
+    </tr>
+  </tbody>
+</table>
+
 <form [formGroup]="slotForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
   <div class="form-group row">
-    <label class=" control-label col-md-12">RoomID</label>
-    <div class="col-md-4"> <input class="form-control" type="text" formControlName="roomId"> </div>
-    <span class="text-danger" *ngIf="roomId.invalid && formDir.submitted">
-      RoomID is required.
-    </span>
+    <label class=" control-label col-md-12">StudentID</label>
+    <div class="col-md-4"> <input class="form-control" type="text" formControlName="studentId"> </div>
   </div>
   <div class="form-group">
     <button type="submit" class="btn btn-default">Save</button>

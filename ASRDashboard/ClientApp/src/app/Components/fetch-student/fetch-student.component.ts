@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Http } from "@angular/http";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { SlotService } from "../../services/slot.service";
 
 @Component({
@@ -10,25 +10,28 @@ import { SlotService } from "../../services/slot.service";
 })
 export class FetchStudentComponent {
   slotList: SlotData[];
+  studentId: string;
 
-  constructor(public http: Http, private _router: Router, private _slotService: SlotService)
+  constructor(public http: Http, private _avRoute: ActivatedRoute, private _slotService: SlotService)
   {
-    this.getSlots();
+    if (this._avRoute.snapshot.params["id"]) {
+      this.studentId = this._avRoute.snapshot.params["id"];
+    }
+    this.getSlots(this.studentId);
   }
 
-  getSlots()
-  {
-    this._slotService.getSlots().subscribe(data => this.slotList = data);
+  getSlots(studentId) {
+    this._slotService.getSlotsForStudent(studentId).subscribe(data => this.slotList = data);
   }
 
-  delete(RoomID, StartTime)
+  delete(RoomID, StartTime, studentId)
   {
     const ans = confirm("Do you want to delete slot for room " + RoomID + " at time: " + StartTime);
     if(ans)
     {
       this._slotService.deleteSlot(RoomID, StartTime).subscribe((data) =>
         {
-          this.getSlots();
+          this.getSlots(studentId);
         },
         error => console.error(error));
     }
@@ -38,6 +41,6 @@ export class FetchStudentComponent {
 interface SlotData {
   RoomID: string;
   StartTime: string;
-  StaffID: string;
-  StudentID: string;
+  staffId: string;
+  studentId: string;
 }

@@ -14,9 +14,9 @@ export class DialogFetchComponent {
 
   constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute, private _slotService: SlotService,
     private _router: Router) {
-    //if (this._avRoute.snapshot.params["id"]) {
-    //  this.id = this._avRoute.snapshot.params["id"];
-    //}
+    if (this._avRoute.snapshot.params["id"]) {
+      this.id = this._avRoute.snapshot.params["id"];
+    }
     this.dialogForm = this._fb.group({
       id: ["", [Validators.required]],
     });
@@ -26,14 +26,6 @@ export class DialogFetchComponent {
     if (!this.dialogForm.valid) {
       return;
     }
-    //if (this.id.startsWith("e")) {
     this._router.navigate(["/fetch-staff", this.dialogForm.value]);
-    //}
-    //if (this.id.startsWith("s")) {
-    //  this._router.navigate(["/fetch-student", this.dialogForm.value]);
-    //}
-    //else {
-    //  return;
-    //}
   }
 }
